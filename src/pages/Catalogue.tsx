@@ -8,6 +8,7 @@ import PageTransition from "@/components/PageTransition";
 import { Input } from "@/components/ui/input";
 import { useProducts } from "@/hooks/useProducts";
 import { GOOGLE_SHEETS_CONFIG, categoryImages } from "@/config/googleSheets";
+import ProductDetail from "@/components/ProductDetail";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -18,6 +19,7 @@ import {
 const Catalogue = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+  const [selectedProduct, setSelectedProduct] = useState<typeof products[0] | null>(null);
 
   // Fetch products from Google Sheets
   const { products, categories, loading, error, refresh, lastUpdated } = useProducts({
@@ -110,6 +112,16 @@ const Catalogue = () => {
   return (
     <PageTransition>
       <Navbar />
+
+      {/* Product Detail Modal */}
+      <AnimatePresence>
+        {selectedProduct && (
+          <ProductDetail 
+            product={selectedProduct} 
+            onClose={() => setSelectedProduct(null)} 
+          />
+        )}
+      </AnimatePresence>
 
       {/* Hero Section */}
       <section className="pt-32 pb-12 md:pt-40 md:pb-16 bg-gradient-dark">
@@ -342,7 +354,8 @@ const Catalogue = () => {
                               exit={{ opacity: 0, scale: 0.9 }}
                               transition={{ duration: 0.3, delay: index * 0.02 }}
                               whileHover={{ y: -4 }}
-                              className="group bg-card border border-border rounded-xl overflow-hidden hover:border-primary/50 hover:shadow-lg transition-all duration-300"
+                              onClick={() => setSelectedProduct(product)}
+                              className="group bg-card border border-border rounded-xl overflow-hidden hover:border-primary/50 hover:shadow-lg transition-all duration-300 cursor-pointer"
                             >
                               {/* Product Image */}
                               <div className="relative h-40 overflow-hidden bg-secondary/30">

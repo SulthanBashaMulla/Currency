@@ -9,10 +9,10 @@ import WhatsAppSection from "@/components/WhatsAppSection";
 import { FadeInSection } from "@/components/AnimatedSections";
 import PageTransition from "@/components/PageTransition";
 
-import heroBg from "@/assets/hero-bg.jpg";
-import carousel1 from "@/assets/carousel-1.jpg";
+import heroBg from "@/assets/hero-bg.png";
+import carousel1 from "@/assets/carousel-1.png";
 import carousel2 from "@/assets/carousel-2.jpg";
-import carousel3 from "@/assets/carousel-3.jpg";
+import carousel3 from "@/assets/carousel-3.png";
 
 const carouselImages = [
   { src: heroBg, alt: "Premium background" },

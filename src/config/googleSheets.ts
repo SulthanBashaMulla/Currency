@@ -11,7 +11,7 @@
 
 export const GOOGLE_SHEETS_CONFIG = {
   // Replace this with your Google Sheet ID
-  spreadsheetId: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQm344KtCHWrQ94ii17pI-xCticvFXsc3r7G0XaT8jsdBsDLbzpzwBMUE2EZ5GWTC2FMLvTzTsv76EK/pubhtml",
+  spreadsheetId: "1eIPegcIYSCpHEstiSBL_USsPBIUz9Vhpo5yXY0eMMWA",
   
   // The name of the sheet tab containing your products
   sheetName: "Products",
